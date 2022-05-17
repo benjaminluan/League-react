@@ -1,37 +1,47 @@
+
 import React, { useEffect, useState } from "react";
-import FilterButton from "./components/FilterButton";
-import axios from "axios";
 
-const Champions = () => {
-  const [champions, setChampions] = useState([]);
-  const [loading, setLoading] = useState([])
+import Champion from "./components/Champion";
 
-  async function championsMap() {
-    const {data: {data}} = await axios(
-      "http://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/champion.json"
-    );
-    const dataIntoArray = Object.values(data)
-    setChampions(dataIntoArray);
-  }
+const Champions = ({ allChampions }) => {
+  const [filteredChampions, setfilteredChampions] = useState([]);
 
-  useEffect(() => {
-    championsMap();
-  }, []);
+  const championTypes = [
+    "All",
+    "Assassin",
+    "Fighter",
+    "Mage",
+    "Marksman",
+    "Support",
+    "Tank",
+  ];
 
   return (
     <div className="container">
       <div className="row">
-        <FilterButton />
-        <div className="champions">
-          {champions.map((champion) => (
-            <figure className="champion__img--wrapper" key={champion.id}>
-              <img
-                src={`./assets/12.6.1/img/champion/${champion.id}`}
-                alt=""
-                className="champion__img"
-              />
-            </figure>
+        <div className="champion__filter--bar">
+          {championTypes.map((type) => (
+            <button
+              className="champion__filter--btn hover__effect"
+              onClick={() => {
+                type === 'All' ? setfilteredChampions(allChampions)
+                :
+                setfilteredChampions(
+                  allChampions.filter((champion) =>
+                    champion.tags.includes(type)
+                  )
+                );
+              }}
+              key={type}
+            >
+              {type}
+            </button>
           ))}
+        </div>
+        <div className="champions">
+          {filteredChampions.map((champion) => (
+                <Champion allChampions={champion} key={champion.id} />
+              ))}
         </div>
       </div>
     </div>
@@ -39,4 +49,3 @@ const Champions = () => {
 };
 
 export default Champions;
- 
