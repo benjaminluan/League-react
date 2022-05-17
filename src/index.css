@@ -139,6 +139,28 @@ Champions
 
 */
 
+.champions{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.champion{
+  width: 20%;
+  padding: 16px 16px;
+}
+
+.champion__name{
+  text-align: center;
+}
+.champion__img--wrapper{
+  width: 100%;
+}
+
+.champion__img{
+  width: 100%;
+}
+
+
 .champion__filter--bar{
   display: flex;
   align-items: center;
@@ -182,7 +204,7 @@ Champions
 
 @media (max-width: 768px) {
     .champions{
-        width: 50%;
+  
     }
     .landing__background{
       display: flex;

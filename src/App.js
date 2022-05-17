@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Nav from "./ui/Nav";
 import axios from "axios";
+import Champions from "./pages/Champions";
 
 function App() {
 
-  function championFiltered(type) {
-    console.log( allChampions.filter(champion => champion.tags.includes(type)))
- }
  
  
   const [champions, setChampions] = useState([]);
@@ -34,6 +32,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home allChampions = { champions }/>} />
+        <Route path="/champions" element={<Champions allChampions = { champions }/>} />
         </Routes>
       </div>
     </Router>

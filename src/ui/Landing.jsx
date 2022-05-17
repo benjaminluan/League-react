@@ -3,7 +3,7 @@ import React from 'react';
 const Landing = () => {
     return (
         <div className="landing__background">
-            <button className="champion__info--btn cursor">Explore More</button>
+            <button className="champion__info--btn cursor">View Champion</button>
         </div>
     );
 }
