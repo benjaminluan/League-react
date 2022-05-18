@@ -49,9 +49,7 @@ nav{
     height: 100px;
     margin: 0 auto;
     background-color: black;
-    /* position: fixed; */
-    /* width: 100%; */
-    /* z-index: 100; */
+    border-bottom: 3px solid rgba(51,51,51,.25);
 }
 
 .nav__search{
@@ -112,7 +110,7 @@ nav{
     font-weight: 700;
 }
 
-  
+
 /* 
 
 Favorites
@@ -132,6 +130,16 @@ Favorites
     margin: 0 auto;
 }
 
+.recommended{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friends__recommendation--container{
+  margin-top: 64px;
+  display: flex;
+}
 
 /*
 
@@ -196,10 +204,62 @@ Champions
 }
 
 
+/* 
+Champion Info
+ */
 
+.champion__background-img-blurred--container{
+  width: 100%;
+  max-height: 900px;
+  overflow: hidden;
+}
 
+.champion__background-img-blurred{
+  width: 100%;
+  filter: blur(8px);
+  transform: scale(1.1); 
+}
 
+.champion__background--container{
+  position: absolute;
+  margin-top: 40px;
+}
+.champion__page{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.champion__info--container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.champion__info{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider__btn--container{
+  position: absolute;
+  width: 100%;
+}
+
+.fa-arrow-left{
+  position: absolute;
+  font-size: 60px;
+  color: white;
+  left: 20%;
+}
+.fa-arrow-right{
+  position: absolute;
+  font-size: 60px;
+  color: white;
+  left: 80%
+}
 
 
 @media (max-width: 768px) {

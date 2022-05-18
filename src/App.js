@@ -1,14 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Nav from "./ui/Nav";
 import axios from "axios";
 import Champions from "./pages/Champions";
+import ChampionInfo from "./pages/ChampionInfo";
 
 function App() {
-
- 
- 
   const [champions, setChampions] = useState([]);
 
   async function championsMap() {
@@ -25,14 +23,18 @@ function App() {
     championsMap();
   }, []);
 
-
   return (
     <Router>
       <div className="App">
         <Nav />
         <Routes>
-          <Route path="/" element={<Home allChampions = { champions }/>} />
-        <Route path="/champions" element={<Champions allChampions = { champions }/>} />
+          <Route path="/" element={<Home allChampions={champions} />} />
+          <Route
+            path="/champions"
+            element={<Champions allChampions={champions} />}
+          />
+          <Route path=":id"
+          element={<ChampionInfo allChampions={champions}/>}/>
         </Routes>
       </div>
     </Router>

@@ -5,9 +5,11 @@ const Nav = () => {
   return (
     <nav>
       <div className="nav__container">
+      <Link to="/">
         <figure className="logo">
           <img src={logo} alt="" className="leagueImg" />
         </figure>
+        </Link>
         <ul className="nav__links">
           <Link to="/">
             <li className="nav__link">Home</li>
