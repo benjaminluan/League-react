@@ -7,7 +7,7 @@ const ChampionSkin = ({}) => {
   const [skins, setSkins] = useState([]);
   const [skinNum, setSkinNum] = useState([]);
   const { id } = useParams();
-  let skinArray = 0;
+  let count = 0;
 console.log(skins)
   async function getSkinData() {
     const {
@@ -27,11 +27,11 @@ console.log(skins)
   }, []);
 
   const nextSlide = () => {
-      if (skinArray !== skins.length){
-          skinArray += 1
-          console.log(skinArray)
-      } else if (skinArray === skins.length){
-          skinArray = 0
+      if (count !== skins.length){
+          count += 1
+          console.log(count)
+      } else if (count === skins.length){
+          count = 0
       }
   };
 
