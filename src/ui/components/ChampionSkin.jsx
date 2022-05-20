@@ -31,9 +31,10 @@ const ChampionSkin = () => {
   const nextSlide = () => {
     if (count !== skins.length) {
       setCount(prevCount => prevCount + 1 )
-      console.log(count)
-    } else if (count === skins.length) {
-      console.log("hi")
+      console.log(skins[count])
+    } else if (count === skins.length - 1) {
+      setCount(0)
+      console.log("finished")
     }
   };
 
@@ -48,14 +49,14 @@ const ChampionSkin = () => {
         <>
         <figure className="champion__background-img-blurred--container">
         <img
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count].num}.jpg`}
+          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
           alt=""
           className="champion__background-img-blurred"
           />
       </figure>
       <figure className="champion__background--container">
         <img
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count].num}.jpg`}
+          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
           alt=""
           className="champion__background"
           />
