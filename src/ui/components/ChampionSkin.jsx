@@ -3,12 +3,13 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import SliderBtn from "./SliderBtn";
 
-const ChampionSkin = ({}) => {
+const ChampionSkin = () => {
   const [skins, setSkins] = useState([]);
-  const [skinNum, setSkinNum] = useState([]);
+  const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  let count = 0;
-console.log(skins)
+
+  console.log(skins);
   async function getSkinData() {
     const {
       data: {
@@ -20,6 +21,7 @@ console.log(skins)
       `http://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
     );
     setSkins(skins);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -27,36 +29,42 @@ console.log(skins)
   }, []);
 
   const nextSlide = () => {
-      if (count !== skins.length){
-          count += 1
-          console.log(count)
-      } else if (count === skins.length){
-          count = 0
-      }
+    if (count !== skins.length) {
+      setCount(prevCount => prevCount + 1 )
+      console.log(count)
+    } else if (count === skins.length) {
+      console.log("hi")
+    }
   };
 
   const prevSlide = () => {
-    console.log("sup");
+    console.log(loading);
   };
-
   return (
-    <>
-      <figure className="champion__background-img-blurred--container">
+    <>{
+      loading ? (
+        <div className="hi"></div>
+      ) : (
+        <>
+        <figure className="champion__background-img-blurred--container">
         <img
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg`}
+          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count].num}.jpg`}
           alt=""
           className="champion__background-img-blurred"
-        />
+          />
       </figure>
       <figure className="champion__background--container">
         <img
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg`}
+          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count].num}.jpg`}
           alt=""
           className="champion__background"
-        />
+          />
       </figure>
+      </>
+          )
+    }
       <SliderBtn nextSlide={nextSlide} prevSlide={prevSlide} />
-    </>
+      </>
   );
 };
 
