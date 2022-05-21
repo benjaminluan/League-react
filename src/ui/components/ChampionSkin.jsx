@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SliderBtn from "./SliderBtn";
@@ -6,10 +6,8 @@ import SliderBtn from "./SliderBtn";
 const ChampionSkin = () => {
   const [skins, setSkins] = useState([]);
   const [count, setCount] = useState(0);
-  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
-  console.log(skins);
   async function getSkinData() {
     const {
       data: {
@@ -21,53 +19,55 @@ const ChampionSkin = () => {
       `http://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
     );
     setSkins(skins);
-    setLoading(false);
   }
 
   useEffect(() => {
     getSkinData();
+  
   }, []);
 
   const nextSlide = () => {
-    if (count !== skins.length) {
-      setCount(prevCount => prevCount + 1 )
-      console.log(skins[count])
+    if (count !== skins.length - 1) {
+      setCount((prevCount) => prevCount + 1);
+      console.log(skins[count]);
     } else if (count === skins.length - 1) {
-      setCount(0)
-      console.log("finished")
+      setCount(0);
     }
   };
 
+
+
   const prevSlide = () => {
-    console.log(loading);
-  };
-  return (
-    <>{
-      loading ? (
-        <div className="hi"></div>
-      ) : (
-        <>
-        <figure className="champion__background-img-blurred--container">
-        <img
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
-          alt=""
-          className="champion__background-img-blurred"
-          />
-      </figure>
-      <figure className="champion__background--container">
-        <img
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
-          alt=""
-          className="champion__background"
-          />
-      </figure>
-      </>
-          )
+    if (count !== 0) {
+      setCount((prevCount) => prevCount - 1);
+      console.log(skins[count]);
+    } else if (count === 0) {
+      setCount(skins.length - 1);
     }
-      <SliderBtn nextSlide={nextSlide} prevSlide={prevSlide} />
-      </>
+  };
+
+  console.log(skins)
+
+
+  return (
+    <>
+          <figure className="champion__background-img-blurred--container">
+            <img
+              src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
+              alt=""
+              className="champion__background-img-blurred"
+            />
+          </figure>
+          <figure className="champion__background--container">
+            <img
+              src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
+              alt=""
+              className="champion__background"
+            />
+            <SliderBtn nextSlide={nextSlide} prevSlide={prevSlide} />
+          </figure>
+    </>
   );
 };
 
-// skins.map(skin => <img key={skin.id} src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skin.num}.jpg`} alt="" /> )
 export default ChampionSkin;

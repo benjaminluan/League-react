@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import ChampionAbilities from "../ui/components/ChampionAbilities";
 import ChampionSkin from "../ui/components/ChampionSkin";
 
 
@@ -16,6 +17,7 @@ const ChampionInfo = ({ allChampions }) => {
           <h1 className="champion__name">{champion?.id}</h1>
           <p className="champion__blurb">{champion?.blurb}</p>
         </div>
+        <ChampionAbilities />
       </div>
     </div>
   );

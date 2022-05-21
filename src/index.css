@@ -27,6 +27,7 @@ html{
 button{
   cursor: pointer;
 }
+
 .cursor{
     cursor: pointer;
 }
@@ -246,19 +247,27 @@ Champion Info
 .slider__btn--container{
   position: absolute;
   width: 100%;
+  top: 40%;
+}
+
+.champion__title,
+.champion__name{
+  text-transform: uppercase;
 }
 
 .fa-arrow-left{
   position: absolute;
   font-size: 60px;
   color: white;
-  left: 20%;
+  left: 10%;
+  cursor: pointer;
 }
 .fa-arrow-right{
   position: absolute;
   font-size: 60px;
   color: white;
-  left: 80%
+  left: 90%;
+  cursor: pointer;
 }
 
 
