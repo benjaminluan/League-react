@@ -270,6 +270,24 @@ Champion Info
   cursor: pointer;
 }
 
+.champion__abilities{
+  display: flex;
+  flex-direction: column;
+}
+
+.champion__ability-icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.passive__img--wrapper{
+  margin: 0 16px;
+}
+
+.ability__img--wrapper {
+  margin: 0 16px;
+}
 
 @media (max-width: 768px) {
     .champions{
