@@ -13,6 +13,8 @@ code {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lato:ital,wght@0,400;1,700&family=Roboto:wght@400;700&family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Koulen&family=Lato:ital,wght@0,400;1,700&family=Roboto:wght@400;700&family=Rubik+Wet+Paint&display=swap');
+@import url("//db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=BeaufortforLOL-Bold");
 
 * {
     margin: 0;
@@ -212,7 +214,7 @@ Champion Info
 .champion__background-img-blurred--container{
   width: 100%;
   max-height: 900px;
-  overflow: hidden;
+  -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
 }
 
 .champion__background-img-blurred{
@@ -224,18 +226,25 @@ Champion Info
 .champion__background--container{
   position: absolute;
   margin-top: 40px;
+  -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
+}
+
+.champion__background{
+  width: 100%;
 }
 .champion__page{
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 .champion__info--container{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 48px;
 }
 
 .champion__info{
@@ -253,7 +262,37 @@ Champion Info
 .champion__title,
 .champion__name{
   text-transform: uppercase;
+  font-family: "BeaufortforLOL-Bold";
+  font-style: italic;
+  font-size: 80px;
+  text-align: center;
+  line-height: .9;
+  animation: from-left 500ms 100ms ease-in;
 }
+
+
+@keyframes from-left{
+  0%{
+    transform: translateX(-500px);
+  }
+  100%{
+    transform:translateX(0px);
+  }
+}
+
+.champion__title{
+  font-size: 32px;
+  animation: from-right 500ms 100ms ease-in;
+  }
+
+  @keyframes from-right{
+    0%{
+      transform: translateX(500px);
+    }
+    100%{
+      transform:translateX(0px);
+    }
+  }
 
 .fa-arrow-left{
   position: absolute;
@@ -273,20 +312,45 @@ Champion Info
 .champion__abilities{
   display: flex;
   flex-direction: column;
+  width: 50%;
+}
+
+.abilities__header{
+  font-family: "BeaufortforLOL-Bold";
+  font-style: italic;
+  font-size: 48px;
+  text-transform: uppercase;
+  margin:32px 0;  
+}
+
+.champion__abilities--info{
+  width: 50%;
+  margin:auto 0;
 }
 
 .champion__ability-icons{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+.champion__abilities--container{
+  display: flex;
+  margin-top: 40px;
+  border: black solid 3px;
+}
+.passive__img--wrapper{
+  margin: 16px 16px;
 }
 
-.passive__img--wrapper{
-  margin: 0 16px;
-}
 
 .ability__img--wrapper {
-  margin: 0 16px;
+  margin: 16px 16px;
+}
+
+.champion__blurb{
+  margin-top: 16px;
+  width: 50%;
 }
 
 @media (max-width: 768px) {

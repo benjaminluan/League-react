@@ -10,19 +10,16 @@ const ChampionInfo = ({ allChampions }) => {
   return (
     <div className="champion__page">
       <ChampionSkin />
-      <div className="container">
-        <div className="row">
           <div className="champion__info--container">
             <div className="champion__info">
-              <h2 className="champion__title">{champion?.title}</h2>
-              <h1 className="champion__name">{champion?.id}</h1>
+              <h2 className="champion__title underline__right--animation">{champion?.title}</h2>
+              <h1 className="champion__name underline__left--animation">{champion?.id}</h1>
               <p className="champion__blurb">{champion?.blurb}</p>
             </div>
             <ChampionAbilities />
           </div>
         </div>
-      </div>
-    </div>
+     
   );
 };
 
