@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import $ from "jquery";
+
 const ChampionAbilities = () => {
   const [spells, setSpells] = useState([]);
   const [passive, setPassive] = useState("");
-  const [active, setActive] = useState(-1);
+  const [active, setActive] = useState(0);
+
   const { id } = useParams();
-  let anything;
+  let anything = 0;
 
   async function getSkinData() {
     const {
@@ -17,16 +18,16 @@ const ChampionAbilities = () => {
     );
     setSpells(data[id].spells);
     setPassive(data[id].passive);
-    console.log(passive);
   }
 
   useEffect(() => {
     getSkinData();
   }, []);
 
+  function updateActiveState(activeNum) {
+    // If active does not equal the activeNum, set active as the activeNum, otherwise set it to 0.
 
-  function ifActive(activeNum){
-    setActive(active !== activeNum ? activeNum : -1);
+    console.log(activeNum);
   }
 
   return (
@@ -34,25 +35,28 @@ const ChampionAbilities = () => {
       <div className="champion__abilities">
         <h1 className="abilities__header">Abilities</h1>
         <div className="champion__ability-icons">
-          <figure className="passive__img--wrapper popup">
-            <img
-              src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/passive/${passive.image?.full}`}
-              alt=""
-            />
-          </figure>
-          {spells.map((spell) => (
-            <figure className="ability__img--wrapper" key={spell.id}>
+          <button className="ability__button" onClick={(event) => updateActiveState(event.target.alt)}>
+            <figure className="passive__img--wrapper popup">
               <img
-                src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/spell/${spell?.id}.png`}
-                alt=""
+                src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/passive/${passive.image?.full}`}
+                alt="0"
               />
             </figure>
+          </button>
+          {spells.map((spell) => (
+            <button className="ability__button" key={spell.id} onClick={(event) => updateActiveState(event.target.alt)}>
+              <figure className={`ability__img--wrapper`} >
+                <img
+                  src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/spell/${spell?.id}.png`}
+                  alt={`${anything += 1}`}
+                />
+              </figure>
+            </button>
           ))}
         </div>
       </div>
       <div className="champion__abilities--info">
         <p>{passive.description?.replace("<br><br>", "")}</p>
-
       </div>
     </div>
   );
