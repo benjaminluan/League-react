@@ -9,7 +9,6 @@ const ChampionAbilities = () => {
 
   const { id } = useParams();
   let anything = 0;
-
   async function getSkinData() {
     const {
       data: { data },
@@ -24,31 +23,41 @@ const ChampionAbilities = () => {
     getSkinData();
   }, []);
 
-  function updateActiveState(activeNum) {
-    // If active does not equal the activeNum, set active as the activeNum, otherwise set it to 0.
-
-    console.log(activeNum);
-  }
-
   return (
     <div className="champion__abilities--container">
       <div className="champion__abilities">
         <h1 className="abilities__header">Abilities</h1>
         <div className="champion__ability-icons">
-          <button className="ability__button" onClick={(event) => updateActiveState(event.target.alt)}>
+          <button
+            className={"ability__button" + (active === 0 ? " show" : " hidden")}
+            onClick={(event) => {
+              setActive(0);
+              console.log(active);
+            }}
+          >
             <figure className="passive__img--wrapper popup">
               <img
                 src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/passive/${passive.image?.full}`}
-                alt="0"
+                alt=""
               />
             </figure>
           </button>
           {spells.map((spell) => (
-            <button className="ability__button" key={spell.id} onClick={(event) => updateActiveState(event.target.alt)}>
-              <figure className={`ability__img--wrapper`} >
+            <button
+              className={
+                "ability__button" +
+                (active === { anything } ? " show" : " hidden")
+              }
+              key={spell.id}
+              onClick={(event) => {
+                setActive(1);
+                console.log(active, event.target.alt);
+              }}
+            >
+              <figure className={`ability__img--wrapper`}>
                 <img
                   src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/spell/${spell?.id}.png`}
-                  alt={`${anything += 1}`}
+                  alt={(anything += 1)}
                 />
               </figure>
             </button>
