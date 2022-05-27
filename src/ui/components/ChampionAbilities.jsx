@@ -5,10 +5,8 @@ import { useParams } from "react-router-dom";
 const ChampionAbilities = () => {
   const [spells, setSpells] = useState([]);
   const [passive, setPassive] = useState("");
-  const [active, setActive] = useState(0);
-
+  const [description, setDescription] = useState("test");
   const { id } = useParams();
-  let anything = 0;
   async function getSkinData() {
     const {
       data: { data },
@@ -17,6 +15,13 @@ const ChampionAbilities = () => {
     );
     setSpells(data[id].spells);
     setPassive(data[id].passive);
+    setDescription(removeHTML(passive.description));
+  }
+
+  function removeHTML(str) {
+    var tmp = document.createElement("DIV");
+    tmp.innerHTML = str;
+    return tmp.textContent || tmp.innerText || "";
   }
 
   useEffect(() => {
@@ -29,43 +34,50 @@ const ChampionAbilities = () => {
         <h1 className="abilities__header">Abilities</h1>
         <div className="champion__ability-icons">
           <button
-            className={"ability__button" + (active === 0 ? " show" : " hidden")}
-            onClick={(event) => {
-              setActive(0);
-              console.log(active);
+            className={
+              "ability__button" +
+              (description === removeHTML(passive.description)
+                ? " show"
+                : " hidden")
+            }
+            onClick={() => {
+              setDescription(removeHTML(passive.description));
             }}
           >
-            <figure className="passive__img--wrapper popup">
+            <figure className="passive__img--wrapper">
               <img
                 src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/passive/${passive.image?.full}`}
                 alt=""
               />
             </figure>
           </button>
-          {spells.map((spell) => (
+          {spells.map((spell, index) => (
             <button
               className={
                 "ability__button" +
-                (active === { anything } ? " show" : " hidden")
+                (description === spell.description ? " show" : " hidden")
               }
               key={spell.id}
-              onClick={(event) => {
-                setActive(1);
-                console.log(active, event.target.alt);
+              onClick={() => {
+                setDescription(spell.description);
               }}
             >
-              <figure className={`ability__img--wrapper`}>
-                <img
-                  src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/spell/${spell?.id}.png`}
-                  alt={(anything += 1)}
-                />
-              </figure>
+              <span>
+                <span>
+                  <figure className={`ability__img--wrapper`}>
+                    <img
+                      src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/spell/${spell?.id}.png`}
+                      alt=""
+                    />
+                  </figure>
+                </span>
+              </span>
             </button>
           ))}
         </div>
       </div>
       <div className="champion__abilities--info">
-        <p>{passive.description?.replace("<br><br>", "")}</p>
+        <p className="champion__abilities--info--para">{description}</p>
       </div>
     </div>
   );

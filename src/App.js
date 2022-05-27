@@ -28,13 +28,13 @@ function App() {
       <div className="App">
         <Nav />
         <Routes>
-          <Route path="/" element={<Home allChampions={champions} />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/champions"
             element={<Champions allChampions={champions} />}
           />
           <Route path=":id"
-          element={<ChampionInfo allChampions={champions}/>}/>
+          element={<ChampionInfo />}/>
         </Routes>
       </div>
     </Router>

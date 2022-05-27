@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x:hidden;
 }
 
 code {
@@ -28,6 +29,9 @@ html{
 }
 button{
   cursor: pointer;
+  border:none;
+  background-color:transparent;
+  outline:none;
 }
 
 .cursor{
@@ -43,6 +47,9 @@ section{
     height: 100vh;
 }
 
+p{
+  line-height: 1.5;
+}
 /* 
 NAV BAR
 */
@@ -150,6 +157,11 @@ Champions
 
 */
 
+.champions__name{
+  text-align: center;
+  margin-top: 16px;
+}
+
 .champions{
   display: flex;
   flex-wrap: wrap;
@@ -160,9 +172,6 @@ Champions
   padding: 16px 16px;
 }
 
-.champion__name{
-  text-align: center;
-}
 .champion__img--wrapper{
   width: 100%;
 }
@@ -245,6 +254,8 @@ Champion Info
   flex-direction: column;
   align-items: center;
   margin-top: 48px;
+  position: absolute;
+  top:70%
 }
 
 .champion__info{
@@ -337,21 +348,106 @@ Champion Info
 .champion__abilities--container{
   display: flex;
   margin-top: 40px;
-  border: black solid 3px;
-}
-.passive__img--wrapper{
-  margin: 16px 16px;
-}
-
-
-.ability__img--wrapper {
-  margin: 16px 16px;
+  border: black solid 1px;
+  width: 70%;
 }
 
 .champion__blurb{
-  margin-top: 16px;
+  margin-top: 24px;
   width: 50%;
+  font-size: 18px;
 }
+
+.ability__button{
+  position: relative;
+  border: none;
+  background: none;
+  color:white;
+  padding: 16px;
+  outline: none;
+  z-index: 10;
+  transition: 150ms ease-in;
+  margin-top: 8px;
+}
+
+/* Ability Line CSS Animations */
+
+.ability__button > span:after{
+  content:'';
+  position: absolute;
+  top:0;
+  left: 50%;
+  width: 20px;
+  height: 0;
+  border: 1px solid black;
+  border-left: none;
+  border-bottom: none;
+  
+   transition: height 0.15s ease-out, width 0.15s ease-out 0.15s;
+}
+.ability__button:hover > span:after{
+  width: calc(50% - 1px);
+  height: calc(100% - 2px);
+  transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+}
+
+.ability__button  > span:before{
+  content:'';
+  position: absolute;
+  top:0;
+  right: 50%;
+  width: 20px;
+  height: 0;
+  
+  border: 1px solid black;
+  border-right: none;
+  border-bottom: none;
+  
+      transition: height 0.15s ease-out, width 0.15s ease-out 0.15s;
+}
+
+.ability__button:hover  > span:before{
+  width: calc(50% - 1px);
+  height: calc(100% - 2px);
+  transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+}
+
+.ability__button  > span > span:before{
+  content:'';
+  position: absolute;
+  bottom:0;
+  right: 0%;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.ability__button:hover  > span > span:before{
+  opacity: 1;
+  border-bottom: 1px solid black;
+  width: calc(50%);
+  height: 1px;
+  transition: opacity 0s ease-out 0.29s, width 0.15s ease-out 0.3s;
+}
+.ability__button  > span > span:after{
+  content:'';
+  position: absolute;
+  bottom:0;
+  left: 0%;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  
+}
+
+.ability__button:hover  > span > span:after{
+  opacity: 1;
+  border-bottom: 1px solid black;
+  width: calc(50%);
+  height: 1px;
+  transition: opacity 0s ease-out 0.29s, width 0.15s ease-out 0.3s;
+}
+
 
 @media (max-width: 768px) {
     .champions{

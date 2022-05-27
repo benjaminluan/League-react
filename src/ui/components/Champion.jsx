@@ -12,7 +12,7 @@ const Champion = ({ allChampions }) => {
             className="champion__img"
           />
         </figure>
-      <h2 className="champion__name">{allChampions.id}</h2>
+      <h2 className="champions__name">{allChampions.id}</h2>
     </div>
   );
 };
