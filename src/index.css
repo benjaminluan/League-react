@@ -218,31 +218,26 @@ Champion Info
   width: 100%;
   max-height: 900px;
   -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
-  animation: fade-in 1500ms linear;
-
 }
 
 .champion__background-img-blurred{
   width: 100%;
   filter: blur(8px);
   transform: scale(1.1); 
-  animation: fade-in 1500ms linear;
-
+  animation: fade-in 100ms linear;
 }
 
 .champion__background--container{
   position: absolute;
   margin-top: 40px;
   -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
-  animation: fade-in 1500ms linear;
-
 }
 
 .champion__background{
   width: 100%;
   animation: fade-in 1500ms linear;
-
 }
+
 .champion__page{
   position: relative;
   display: flex;

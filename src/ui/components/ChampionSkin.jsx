@@ -51,6 +51,7 @@ const ChampionSkin = () => {
           src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
           alt=""
           className="champion__background-img-blurred"
+          key={skins[count]?.num}
         />
       </figure>
       <figure className="champion__background--container" >
