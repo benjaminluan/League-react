@@ -44,7 +44,7 @@ const ChampionAbilities = () => {
               setDescription(removeHTML(passive.description));
             }}
           >
-            <figure className="passive__img--wrapper">
+            <figure className="ability__img--wrapper">
               <img
                 src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/passive/${passive.image?.full}`}
                 alt=""
@@ -62,22 +62,18 @@ const ChampionAbilities = () => {
                 setDescription(spell.description);
               }}
             >
-              <span>
-                <span>
-                  <figure className={`ability__img--wrapper`}>
-                    <img
-                      src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/spell/${spell?.id}.png`}
-                      alt=""
-                    />
-                  </figure>
-                </span>
-              </span>
+              <figure className={`ability__img--wrapper`}>
+                <img
+                  src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/spell/${spell?.id}.png`}
+                  alt=""
+                />
+              </figure>
             </button>
           ))}
         </div>
       </div>
       <div className="champion__abilities--info">
-        <p className="champion__abilities--info--para">{description}</p>
+        <p className="champion__abilities--info--para" key={description}>{description}</p>
       </div>
     </div>
   );

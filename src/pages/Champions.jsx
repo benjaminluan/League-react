@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Champion from "../ui/components/Champion"
 
 const Champions = ({ allChampions }) => {
@@ -13,14 +13,14 @@ const Champions = ({ allChampions }) => {
     "Support",
     "Tank",
   ];
-
+console.log(filteredChampions.tags)
   return (
     <div className="container">
       <div className="row">
         <div className="champion__filter--bar">
           {championTypes.map((type) => (
             <button
-              className="champion__filter--btn hover__effect"
+              className={"champion__filter--btn hover__effect"}
               onClick={() => {
                 type === "All"
                   ? setfilteredChampions(allChampions)
