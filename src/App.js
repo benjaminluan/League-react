@@ -13,7 +13,7 @@ function App() {
     const {
       data: { data },
     } = await axios(
-      "http://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/champion.json"
+      "https://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/champion.json"
     );
     const dataIntoArray = Object.values(data);
     setChampions(dataIntoArray);
