@@ -16,7 +16,7 @@ const ChampionSkin = () => {
         },
       },
     } = await axios(
-      `http://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
+      `https://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
     );
     setSkins(skins);
   }
@@ -43,22 +43,22 @@ const ChampionSkin = () => {
     }
   };
 
-  console.log(skins);
 
   return (
     <>
-      <figure className="champion__background-img-blurred--container">
+      <figure className="champion__background-img-blurred--container" >
         <img
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
+          src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
           alt=""
           className="champion__background-img-blurred"
         />
       </figure>
-      <figure className="champion__background--container">
+      <figure className="champion__background--container" >
         <img
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
+          src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_${skins[count]?.num}.jpg`}
           alt=""
           className="champion__background"
+          key={skins[count]?.num}
         />
         <SliderBtn nextSlide={nextSlide} prevSlide={prevSlide} />
       </figure>
