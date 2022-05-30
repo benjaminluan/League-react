@@ -14,7 +14,7 @@ const ChampionInfo = () => {
     const {
       data: { data },
     } = await axios.get(
-      `http://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
+      `https://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
     );
     setChampion(data[id]);
   }

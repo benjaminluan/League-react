@@ -4,19 +4,22 @@ import { useParams } from "react-router-dom";
 
 const ChampionAbilities = () => {
   const [spells, setSpells] = useState([]);
-  const [passive, setPassive] = useState("");
-  const [description, setDescription] = useState("test");
+  const [passive, setPassive] = useState([]);
+  const [description, setDescription] = useState("");
+  const [loading, setLoading] = useState(false);
   const { id } = useParams();
+
   async function getSkinData() {
     const {
       data: { data },
     } = await axios.get(
-      `http://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
+      `https://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
     );
     setSpells(data[id].spells);
     setPassive(data[id].passive);
-    setDescription(removeHTML(passive.description));
   }
+
+  
 
   function removeHTML(str) {
     var tmp = document.createElement("DIV");
@@ -26,7 +29,12 @@ const ChampionAbilities = () => {
 
   useEffect(() => {
     getSkinData();
-  }, []);
+  }, [])
+
+  useEffect(() => {
+    setDescription(removeHTML(passive.description));
+  }, [passive])
+  
 
   return (
     <div className="champion__abilities--container">
@@ -46,7 +54,7 @@ const ChampionAbilities = () => {
           >
             <figure className="ability__img--wrapper">
               <img
-                src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/passive/${passive.image?.full}`}
+                src={`https://ddragon.leagueoflegends.com/cdn/12.9.1/img/passive/${passive.image?.full}`}
                 alt=""
               />
             </figure>
@@ -64,7 +72,7 @@ const ChampionAbilities = () => {
             >
               <figure className={`ability__img--wrapper`}>
                 <img
-                  src={`http://ddragon.leagueoflegends.com/cdn/12.9.1/img/spell/${spell?.id}.png`}
+                  src={`https://ddragon.leagueoflegends.com/cdn/12.9.1/img/spell/${spell?.id}.png`}
                   alt=""
                 />
               </figure>
@@ -73,7 +81,13 @@ const ChampionAbilities = () => {
         </div>
       </div>
       <div className="champion__abilities--info">
-        <p className="champion__abilities--info--para" key={description}>{description}</p>
+        {loading === false ? (
+          <p className="champion__abilities--info--para" key={description}>
+            {description}
+          </p>
+        ) : (
+          <p>""</p>
+        )}
       </div>
     </div>
   );
