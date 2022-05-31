@@ -1,146 +1,199 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lato:ital,wght@0,400;1,700&family=Roboto:wght@400;700&family=Rubik+Wet+Paint&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Koulen&family=Lato:ital,wght@0,400;1,700&family=Roboto:wght@400;700&family=Rubik+Wet+Paint&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lato:ital,wght@0,400;1,700&family=Roboto:wght@400;700&family=Rubik+Wet+Paint&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Koulen&family=Lato:ital,wght@0,400;1,700&family=Roboto:wght@400;700&family=Rubik+Wet+Paint&display=swap");
 @import url("https://db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=BeaufortforLOL-Bold");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: roboto ,sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: roboto, sans-serif;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
-button{
+button {
   cursor: pointer;
-  border:none;
-  background-color:transparent;
-  outline:none;
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
 
-.cursor{
-    cursor: pointer;
+.cursor {
+  cursor: pointer;
 }
-a{
-    list-style: none;
-    color: white;
-    text-decoration: none;
-}
-
-section{
-    height: 100vh;
+a {
+  list-style: none;
+  color: white;
+  text-decoration: none;
 }
 
-p{
+section {
+  height: 100vh;
+}
+
+p {
   line-height: 1.5;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
 }
 /* 
 NAV BAR
 */
 
-
-nav{
-    height: 120px;
-    margin: 0 auto;
-    background-color: black;
-    border-bottom: 3px solid rgba(51,51,51,.25);
+nav {
+  height: 120px;
+  margin: 0 auto;
+  background-color: black;
+  border-bottom: 3px solid rgba(51, 51, 51, 0.25);
 }
 
-
-.nav__container{
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    margin:0 auto;
-    align-items: center;
-    padding: 0 24px;
-    height: 100%;
+.nav__container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: center;
+  padding: 0 24px;
+  height: 100%;
 }
 
-.nav__links{
-    display: flex;
+.nav__links {
+  display: flex;
 }
 
-.nav__link{
-    margin: 0 8px;
-    font-size: 18px;
+.nav__link {
+  margin: 0 8px;
+  font-size: 18px;
 }
 
-.logo{
-   margin: 16px 16px;
-    width: 240px;
+.logo {
+  margin: 16px 16px;
+  width: 240px;
 }
 
-.leagueImg{
-    height: 100%;
-    width: 100%;
+.leagueImg {
+  height: 100%;
+  width: 100%;
 }
 
-.landing__background{
-    background-image: url(./assets/Renata_0.jpg);
-    background-size: 100%;
-    min-height: 600px;
-    background-repeat: no-repeat;
-    position: relative;
+.landing__background {
+  background-image: url(./assets/Renata_0.jpg);
+  background-size: 100%;
+  min-height: 600px;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-.champion__info--btn{
-    position: absolute;
-    top:70%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    background-color: #000000;
-    color: white;
-    border: none;
-    padding: 24px 24px;
-    font-size: 32px;
-    font-weight: 700;
+.champion__info--btn {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 24px 24px;
+  font-size: 32px;
+  font-weight: 700;
 }
 
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 64px 0;
+}
 
+.searchBar__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 32px 0;
+}
+
+.searchBar {
+  height: 48px;
+  width: 60%;
+  font-size: 32px;
+  border-radius: 999px;
+  border: black solid 1px;
+  padding-left: 30px;
+}
+
+.suggestion__box {
+  width: 60%;
+}
+
+.suggestions {
+  padding-left: 32px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: black;
+}
+
+.suggestions:hover {
+  background-color: lightgray;
+}
+
+.hide__suggestion {
+  visibility: hidden;
+}
+
+.show__suggestion {
+  visibility: visible;
+}
+
+.suggestion__img {
+  max-width: 40px;
+  margin: 2px;
+  margin-right: 16px;
+}
 /* 
 
 Favorites
 
 */
 
-
-
-.container{
-    padding: 56px 0;
-    min-height: 100vh;
+.container {
+  padding: 56px 0;
 }
 
-.row{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+.row {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.recommended{
+.recommended {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.friends__recommendation--container{
+.friends__recommendation--container {
   margin-top: 64px;
   display: flex;
 }
@@ -151,37 +204,36 @@ Champions
 
 */
 
-.champions__name{
+.champions__name {
   text-align: center;
   margin-top: 16px;
 }
 
-.champions{
+.champions {
   display: flex;
   flex-wrap: wrap;
   margin-top: 32px;
 }
-.champion{
+.champion {
   width: 20%;
   padding: 16px 16px;
 }
 
-.champion__img--wrapper{
+.champion__img--wrapper {
   width: 100%;
 }
 
-.champion__img{
+.champion__img {
   width: 100%;
 }
 
-
-.champion__filter--bar{
+.champion__filter--bar {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.champion__filter--btn{
+.champion__filter--btn {
   margin: 8px 16px;
   border: none;
   padding: 0;
@@ -190,13 +242,13 @@ Champions
   font-weight: 700;
 }
 /* Button hover effects*/
-.hover__effect{
+.hover__effect {
   position: relative;
 }
-.hover__effect:after{
+.hover__effect:after {
   content: "";
   position: absolute;
-  bottom:-3px;
+  bottom: -3px;
   height: 3px;
   width: 0;
   right: 0;
@@ -205,40 +257,39 @@ Champions
 }
 
 .hover__effect:hover:after {
-  left:0;
+  left: 0;
   width: 100%;
 }
-
 
 /* 
 Champion Info
  */
 
-.champion__background-img-blurred--container{
+.champion__background-img-blurred--container {
   width: 100%;
   max-height: 900px;
   -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
 }
 
-.champion__background-img-blurred{
+.champion__background-img-blurred {
   width: 100%;
   filter: blur(8px);
-  transform: scale(1.1); 
+  transform: scale(1.1);
   animation: fade-in 100ms linear;
 }
 
-.champion__background--container{
+.champion__background--container {
   position: absolute;
   margin-top: 40px;
   -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 98%);
 }
 
-.champion__background{
+.champion__background {
   width: 100%;
   animation: fade-in 1500ms linear;
 }
 
-.champion__page{
+.champion__page {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -246,70 +297,69 @@ Champion Info
   height: 100vh;
 }
 
-.champion__info--container{
+.champion__info--container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 48px;
   position: absolute;
-  top:70%
+  top: 70%;
 }
 
-.champion__info{
-  display:flex;
+.champion__info {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.slider__btn--container{
+.slider__btn--container {
   position: absolute;
   width: 100%;
   top: 40%;
 }
 
 .champion__title,
-.champion__name{
+.champion__name {
   text-transform: uppercase;
   font-family: "BeaufortforLOL-Bold";
   font-style: italic;
   font-size: 80px;
   text-align: center;
-  line-height: .9;
+  line-height: 0.9;
   animation: from-left 500ms 100ms ease-in;
 }
 
-
-@keyframes from-left{
-  0%{
+@keyframes from-left {
+  0% {
     transform: translateX(-500px);
   }
-  100%{
-    transform:translateX(0px);
+  100% {
+    transform: translateX(0px);
   }
 }
 
-.champion__title{
+.champion__title {
   font-size: 32px;
   animation: from-right 500ms 100ms ease-in;
-  }
+}
 
-  @keyframes from-right{
-    0%{
-      transform: translateX(500px);
-    }
-    100%{
-      transform:translateX(0px);
-    }
+@keyframes from-right {
+  0% {
+    transform: translateX(500px);
   }
+  100% {
+    transform: translateX(0px);
+  }
+}
 
-.fa-arrow-left{
+.fa-arrow-left {
   position: absolute;
   font-size: 60px;
   color: white;
   left: 10%;
   cursor: pointer;
 }
-.fa-arrow-right{
+.fa-arrow-right {
   position: absolute;
   font-size: 60px;
   color: white;
@@ -317,112 +367,109 @@ Champion Info
   cursor: pointer;
 }
 
-
-.champion__ability--wrapper{
+.champion__ability--wrapper {
   display: flex;
   justify-content: center;
 }
 
-.line__animation-wrapper{
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
+.line__animation-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.line__animation{
+.line__animation {
   height: 1px;
   background: black;
   width: 100px;
 }
 
-
-.champion__abilities{
+.champion__abilities {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
 
-.abilities__header{
+.abilities__header {
   font-family: "BeaufortforLOL-Bold";
   font-style: italic;
   font-size: 48px;
   text-transform: uppercase;
-  margin:32px 0;  
+  margin: 32px 0;
 }
 
-.champion__abilities--info{
+.champion__abilities--info {
   width: 50%;
-  margin:auto 0;
+  margin: auto 0;
 }
 
-.champion__ability-icons{
+.champion__ability-icons {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
 }
-.champion__abilities--container{
+.champion__abilities--container {
   display: flex;
   margin-top: 40px;
   width: 70%;
 }
 
-.champion__blurb{
+.champion__blurb {
   margin-top: 24px;
   width: 50%;
   font-size: 18px;
 }
 
-.ability__img--wrapper{
+.ability__img--wrapper {
   height: 64px;
 }
-.ability__button{
+.ability__button {
   position: relative;
   border: none;
   background: none;
-  color:white;
+  color: white;
   padding: 16px;
   outline: none;
   z-index: 10;
   transition: 350ms ease-in;
 }
 
-.ability__button:hover{
+.ability__button:hover {
   transform: scale(1.3);
 }
 
-.show{
+.show {
   transform: scale(1.3);
 }
 
-.champion__abilities--info--para{
+.champion__abilities--info--para {
   margin: 16px 16px;
   font-size: 20px;
   opacity: 1;
   animation: fade-in 1s linear;
 }
 
-@keyframes fade-in{
-  0%{
+@keyframes fade-in {
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
 
 @media (max-width: 768px) {
-    .champions{
-  
-    }
-    .landing__background{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .champion__info--btn{
-      position:initial;
-      transform:none;
-    }
+  .champions {
+  }
+  .landing__background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .champion__info--btn {
+    position: initial;
+    transform: none;
+  }
 }
