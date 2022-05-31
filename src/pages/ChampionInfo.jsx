@@ -15,8 +15,8 @@ const ChampionInfo = () => {
       data: { data },
     } = await axios.get(
       `https://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
-    ).then(({data}) => setChampion(data));
-    console.log(data)
+    )
+    setChampion(data[id])
   }
 
   useEffect(() => {
