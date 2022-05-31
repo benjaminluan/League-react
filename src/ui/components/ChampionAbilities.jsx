@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const ChampionAbilities = () => {
+const ChampionAbilities = ( {championData}) => {
   const [spells, setSpells] = useState([]);
   const [passive, setPassive] = useState([]);
   const [description, setDescription] = useState("");
@@ -15,11 +15,12 @@ const ChampionAbilities = () => {
     } = await axios.get(
       `https://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
     );
+
     setSpells(data[id].spells);
     setPassive(data[id].passive);
   }
 
-  
+console.log(championData)
 
   function removeHTML(str) {
     var tmp = document.createElement("DIV");

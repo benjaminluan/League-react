@@ -15,14 +15,16 @@ const ChampionInfo = () => {
       data: { data },
     } = await axios.get(
       `https://ddragon.leagueoflegends.com/cdn/12.9.1/data/en_US/champion/${id}.json`
-    );
-    setChampion(data[id]);
+    ).then(({data}) => setChampion(data));
+    console.log(data)
   }
 
   useEffect(() => {
     getIndividualChampionData();
   }, []);
 
+
+  
   return (
     <div className="champion__page">
       <ChampionSkin />
@@ -36,7 +38,7 @@ const ChampionInfo = () => {
           </h1>
           <p className="champion__blurb">{champion?.lore}</p>
         </div>
-        <ChampionAbilities />
+        <ChampionAbilities championData={champion} />
       </div>
     </div>
   );
