@@ -8,7 +8,7 @@ const SuggestionInput = ({ allChampions }) => {
   function suggestionFilter() {
     let list;
     list = allChampions
-      .filter((champions) => champions.id.toLowerCase().includes(input))
+      .filter((champions) => champions.id.toUpperCase().includes(input.toUpperCase()))
       .map((champions) => (
         <Link to={`/${champions.id}`} key={champions.id}>
         <li className="suggestions cursor" >
