@@ -26,7 +26,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
+        {/* <Nav /> */}
         <Routes>
           <Route path="/" element={<Home allChampions={champions} />} />
           <Route

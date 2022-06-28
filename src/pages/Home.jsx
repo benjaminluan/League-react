@@ -1,12 +1,14 @@
 import React from "react";
 import LandingBackground from "../ui/LandingBackground";
 import Landing from "../ui/Landing";
+import HomeCover from "../ui/components/HomeCover";
 
 const Home = ({ allChampions }) => {
   return (
     <>
-      <Landing allChampions={allChampions} />
-      <LandingBackground />
+    <HomeCover />
+      {/* <Landing allChampions={allChampions} />
+      <LandingBackground /> */}
     </>
   );
 };
