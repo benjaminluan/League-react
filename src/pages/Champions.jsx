@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Champion from "../ui/components/Champion"
+import Champion from "../ui/components/Champion";
 
 const Champions = ({ allChampions }) => {
   const [filteredChampions, setfilteredChampions] = useState([]);
@@ -13,11 +13,16 @@ const Champions = ({ allChampions }) => {
     "Support",
     "Tank",
   ];
-console.log(filteredChampions.tags)
+
   return (
     <div className="container">
       <div className="row">
+        <div className="champions__header--wrapper">
+          <h2>CHOOSE YOUR</h2>
+          <h1 className="champions__header">Champion</h1>
+        </div>
         <div className="champion__filter--bar">
+          <span></span>
           {championTypes.map((type) => (
             <button
               className={"champion__filter--btn hover__effect"}
@@ -38,8 +43,7 @@ console.log(filteredChampions.tags)
         </div>
         <div className="champions">
           {filteredChampions.length <= 0
-            ? allChampions
-            .map((champion) => (
+            ? allChampions.map((champion) => (
                 <Champion allChampions={champion} key={champion.id} />
               ))
             : filteredChampions.map((champion) => (
