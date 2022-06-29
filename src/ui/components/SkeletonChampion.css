@@ -1,5 +1,6 @@
-.skeleton__champion{
-background-color: gray;
-width: 300px;
-height: 300px;
+.skeleton__champion {
+  background-color: lightgray;
+  width: 100%;
+  max-width: 240px;
+  height: 250px;
 }

@@ -4,7 +4,6 @@ import "./SkeletonChampion.css"
 const SkeletonChampion = () => {
     return (
         <div className='skeleton__champion'>
-    
         </div>
     );
 }

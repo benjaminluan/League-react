@@ -6,32 +6,43 @@ const Champion = ({ allChampions, filteredChampions }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 200);
   }, [allChampions]);
 
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false);
+    }, 200);
+  }, [filteredChampions]);
+
+  console.log(filteredChampions);
   return (
     <>
-      {loading === true ? (
-        filteredChampions.map((champion) => (
-          <div className="champion" key={champion.id}>
-            <figure
-              className="champion__img--wrapper cursor"
-              onClick={() => navigate(`/${champion.id}`)}
-            >
-              <img
-                src={`./assets/12.6.1/img/champion/${champion.id}.png`}
-                alt=""
-                className="champion__img"
-              />
-            </figure>
-            <h2 className="champions__name">{champion.id}</h2>
-          </div>
-        ))
-      ) : (
-        <SkeletonChampion />
-      )}
+      {loading === false
+        ? filteredChampions.map((champion) => (
+            <div className="champion" key={champion.id}>
+              <figure
+                className="champion__img--wrapper cursor"
+                onClick={() => navigate(`/${champion.id}`)}
+              >
+                <img
+                  src={`./assets/12.6.1/img/champion/${champion.id}.png`}
+                  alt=""
+                  className="champion__img"
+                />
+              </figure>
+              <h2 className="champions__name">{champion.id}</h2>
+            </div>
+          ))
+        : filteredChampions.map((champion) => (
+            <div className="champion" key={champion.id}>
+              <SkeletonChampion />
+            </div>
+          ))}
     </>
   );
 };

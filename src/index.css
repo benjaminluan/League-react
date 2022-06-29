@@ -237,6 +237,7 @@ Champions
 .champion {
   width: 20%;
   padding: 16px 16px;
+  height: fit-content;
 }
 
 .champion__img--wrapper {
