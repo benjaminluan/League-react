@@ -3,6 +3,7 @@ import Champion from "../ui/components/Champion";
 
 const Champions = ({ allChampions }) => {
   const [filteredChampions, setfilteredChampions] = useState([]);
+  const [active, setActive] = useState("All");
 
   const championTypes = [
     "All",
@@ -13,6 +14,11 @@ const Champions = ({ allChampions }) => {
     "Support",
     "Tank",
   ];
+
+  const isActive = (type) => {
+    setActive(type)
+  };
+  
 
   return (
     <div className="container">
@@ -25,7 +31,7 @@ const Champions = ({ allChampions }) => {
           <span></span>
           {championTypes.map((type) => (
             <button
-              className={"champion__filter--btn hover__effect"}
+              className={"champion__filter--btn hover__effect" + (active === type ? " active" : " not__active") }
               onClick={() => {
                 type === "All"
                   ? setfilteredChampions(allChampions)
@@ -34,6 +40,7 @@ const Champions = ({ allChampions }) => {
                         champion.tags.includes(type)
                       )
                     );
+                    isActive(type)
               }}
               key={type}
             >
