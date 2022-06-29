@@ -1,19 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const Champion = ({ allChampions }) => {
-  const navigate = useNavigate()
+import SkeletonChampion from "./SkeletonChampion";
+
+const Champion = ({ allChampions, filteredChampions }) => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+    setLoading(false);
+  }, [allChampions]);
 
   return (
-    <div className="champion">
-        <figure className="champion__img--wrapper cursor" key={allChampions.id} onClick= {() => navigate(`/${allChampions.id}`)}>
-          <img
-            src={`./assets/12.6.1/img/champion/${allChampions.id}.png`}
-            alt=""
-            className="champion__img"
-          />
-        </figure>
-      <h2 className="champions__name">{allChampions.id}</h2>
-    </div>
+    <>
+      {loading === true ? (
+        filteredChampions.map((champion) => (
+          <div className="champion" key={champion.id}>
+            <figure
+              className="champion__img--wrapper cursor"
+              onClick={() => navigate(`/${champion.id}`)}
+            >
+              <img
+                src={`./assets/12.6.1/img/champion/${champion.id}.png`}
+                alt=""
+                className="champion__img"
+              />
+            </figure>
+            <h2 className="champions__name">{champion.id}</h2>
+          </div>
+        ))
+      ) : (
+        <SkeletonChampion />
+      )}
+    </>
   );
 };
 

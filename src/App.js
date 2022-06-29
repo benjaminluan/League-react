@@ -33,8 +33,7 @@ function App() {
             path="/champions"
             element={<Champions allChampions={champions} />}
           />
-          <Route path=":id"
-          element={<ChampionInfo />}/>
+          <Route path=":id" element={<ChampionInfo />} />
         </Routes>
       </div>
     </Router>

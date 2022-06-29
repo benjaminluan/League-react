@@ -225,6 +225,8 @@ Champions
 .champions__name {
   text-align: center;
   margin-top: 16px;
+  animation: appear 1s ease-in;
+  position: relative;
 }
 
 .champions {
@@ -239,6 +241,19 @@ Champions
 
 .champion__img--wrapper {
   width: 100%;
+  position: relative;
+  animation: appear 1s ease-in;
+}
+
+@keyframes appear {
+  0%{
+    top: 20%;
+    opacity: 0;
+  }
+  100%{
+    top: 0;
+    opacity: 1;
+  }
 }
 
 .champion__img {
@@ -308,6 +323,10 @@ Champions
   color: rgb(193, 193, 193);
 }
 
+.champion__filter--btn:hover{
+color: black;
+transition: color 350ms ease;
+}
 
 
 
@@ -315,6 +334,7 @@ Champions
 .hover__effect {
   position: relative;
 }
+
 .hover__effect:after {
   content: "";
   position: absolute;
