@@ -244,13 +244,20 @@ Champions
 .champion__img--wrapper {
   width: 100%;
   position: relative;
-  animation: appear 1s ease-in;
+  animation: appear 2s linear;
 }
 
 @keyframes appear {
   0% {
-    top: 20%;
     opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    top: 20%;
+
+    opacity: 0.5;
   }
   100% {
     top: 0;
