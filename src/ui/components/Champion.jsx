@@ -33,6 +33,7 @@ const Champion = ({ allChampions, filteredChampions }) => {
                   src={`./assets/12.6.1/img/champion/${champion.id}.png`}
                   alt=""
                   className="champion__img"
+                  loading="lazy"
                 />
               </figure>
               <h2 className="champions__name">{champion.id}</h2>
