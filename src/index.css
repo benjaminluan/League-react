@@ -488,7 +488,7 @@ Champion Info
 }
 
 .abilities__header {
-  font-family: "BeaufortforLOL-Bold";
+  font-family: "BeaufortforLOL-Bold", sans-serif;
   font-style: italic;
   font-size: 48px;
   text-transform: uppercase;
