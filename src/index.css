@@ -211,7 +211,7 @@ Champions
   text-align: center;
   text-transform: uppercase;
   font-family: "BeaufortforLOL-Bold", sans-serif;
-  font-display: fallback ;
+  font-display: fallback;
   letter-spacing: 5px;
   font-style: italic;
   height: 100px;
@@ -248,11 +248,11 @@ Champions
 }
 
 @keyframes appear {
-  0%{
+  0% {
     top: 20%;
     opacity: 0;
   }
-  100%{
+  100% {
     top: 0;
     opacity: 1;
   }
@@ -299,7 +299,37 @@ Champions
   animation: expandLine 2s ease;
 }
 
+.champion__filter--bar:after {
+  position: absolute;
+  content: "";
+  width: 51%;
+  border: 1px solid rgb(193, 193, 193);
+  border-right: none;
+  border-bottom: none;
+  bottom: -3%;
+  right: -1%;
+  animation: expandLine1 1s ease;
+}
+.champion__filter--bar:before {
+  position: absolute;
+  content: "";
+  width: 51%;
+  border: 1px solid rgb(193, 193, 193);
+  border-right: none;
+  border-bottom: none;
+  bottom: -3%;
+  left: -1%;
+  animation: expandLine1 1s ease;
+}
+@keyframes expandLine1 {
+  0% {
+    width: 0%;
+  }
 
+  100% {
+    width: 51%;
+  }
+}
 @keyframes expandLine {
   0% {
     width: 0%;
@@ -321,17 +351,15 @@ Champions
   background: transparent;
   font-size: 24px;
   font-family: "BeaufortforLOL-Bold", sans-serif;
-  font-display: fallback ;
+  font-display: fallback;
   font-weight: 100;
   color: rgb(193, 193, 193);
 }
 
-.champion__filter--btn:hover{
-color: black;
-transition: color 350ms ease;
+.champion__filter--btn:hover {
+  color: black;
+  transition: color 350ms ease;
 }
-
-
 
 /* Button hover effects*/
 .hover__effect {
@@ -349,7 +377,7 @@ transition: color 350ms ease;
   background: black;
 }
 
-.active{
+.active {
   border-bottom: 3px solid black;
   color: black;
 }
@@ -420,7 +448,7 @@ Champion Info
 .champion__name {
   text-transform: uppercase;
   font-family: "BeaufortforLOL-Bold", sans-serif;
-  font-display: fallback ;
+  font-display: fallback;
   font-style: italic;
   font-size: 80px;
   text-align: center;
@@ -492,7 +520,7 @@ Champion Info
 
 .abilities__header {
   font-family: "BeaufortforLOL-Bold", sans-serif;
-  font-display: fallback ;
+  font-display: fallback;
   font-style: italic;
   font-size: 48px;
   text-transform: uppercase;
